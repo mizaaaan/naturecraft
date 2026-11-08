@@ -399,7 +399,7 @@ html[lang="ar"] .h2 {
       rgba(7, 28, 24, 0.68) 100%
     ),
     linear-gradient(0deg, rgba(7, 28, 24, 0.62), rgba(7, 28, 24, 0.18)),
-    url("media/palm-courtyard.jpg");
+    url("media/hero-nature.jpg");
   background-size: cover;
   background-position: center 56%;
   background-color: var(--night);
