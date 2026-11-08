@@ -4,7 +4,7 @@ All photographs used for the hero and garden-style scenes are dedicated to the p
 
 | File                       | Photograph                         | Creator            | Source                                                                      |
 | -------------------------- | ---------------------------------- | ------------------ | --------------------------------------------------------------------------- |
-| `media/hero-nature.jpg`    | Cluster of tall palms under clouds | Suraj Sutar        | [WordPress Photo Directory](https://wordpress.org/photos/photo/84168538c5/) |
+| `media/hero-nature.jpg`    | Dense tropical forest foliage      | Michelle Obando Calderón | [WordPress Photo Directory](https://wordpress.org/photos/photo/36869e82b8/) |
 | `media/palm-courtyard.jpg` | Garden courtyard with grassy paths | Jessica Brenes     | [WordPress Photo Directory](https://wordpress.org/photos/photo/8866aee4b1/) |
 | `media/palm-oasis.jpg`     | Palm trees and lawn                | chrismurillo06     | [WordPress Photo Directory](https://wordpress.org/photos/photo/4646ae9fb2/) |
 | `media/water-garden.jpg`   | Fountain at Waldstein Garden       | Bigul Malayi       | [WordPress Photo Directory](https://wordpress.org/photos/photo/68867d5c71/) |
