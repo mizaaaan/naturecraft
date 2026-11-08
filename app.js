@@ -564,10 +564,10 @@
   }
   /* ---------- Site content and bilingual copy (EN / AR) ---------- */
   /* Add the real business contact channels here before launch. Blank values
-     keep placeholder contact details and unusable enquiry actions off the page. */
+     keep placeholder contact details off the page. */
   const CONFIG = {
-    whatsapp: "",
-    phone: "",
+    whatsapp: "97450428240",
+    phone: "+974 50428240",
     email: "",
   };
   let L = "en";
