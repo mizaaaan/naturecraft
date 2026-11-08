@@ -32,7 +32,8 @@ The site header and footer sit outside `<main>` and have their own labels.
 - **English and Arabic wording:** edit the `en` and `ar` values in the data groups near the top of `app.js`.
 - **Garden selector photos and alt text:** edit `SCENE_MEDIA` in `app.js`; keep the photo file and its credit in `media/` and `MEDIA-LICENSES.md` in sync.
 - **Plants and care information:** edit `PLANTS` in `app.js`.
-- **Business phone, email, and WhatsApp:** replace the placeholder values in `CONFIG` in `app.js` before launch.
+- **Business phone, email, and WhatsApp:** set the real values in `CONFIG` in `app.js` before launch. Contact rows stay hidden while blank, and the WhatsApp action stays hidden until a number is configured. Use the international country code without `+` or spaces for WhatsApp (for example, `974...`).
+- **Care-plan enquiries:** each plan card carries its selected plan into the contact message automatically.
 - **Colors and fonts:** edit the custom properties at the top of `styles.css`.
 - **Layout and appearance:** use the named component groups in `styles.css` (navigation, hero, garden designer, plants, process, calendar, plans, contact, footer).
 - **Page structure:** edit the named section in `index.html`; keep its `id` if navigation links depend on it.
@@ -46,6 +47,13 @@ python -m http.server 8000
 ```
 
 Then open `http://localhost:8000`. The site loads its scripts, stylesheet, and photos from this folder. Google Fonts are loaded from the web.
+
+## Before handover or launch
+
+- Add the business phone, email, and WhatsApp number to `CONFIG` in `app.js`.
+- Confirm the contact section's service areas and the callback wording in `index.html` match the business.
+- Check the photo credits in `MEDIA-LICENSES.md` if media files are replaced.
+- Open the page in a browser and check both English and Arabic, desktop and mobile layouts, each garden-style/time-of-day control, the plant selector, seasonal tabs, and an enquiry from every care plan.
 
 ## How the JavaScript is organized
 

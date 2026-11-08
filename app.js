@@ -563,11 +563,12 @@
     return `<svg viewBox="0 0 400 560" role="img" aria-label="${label}">${defs}<g clip-path="url(#ac${u})">${skyLayer(P, u, rnd)}${sk.build(P)}${body}<rect x="0" y="470" width="400" height="100" fill="url(#vg${u})"/>${motes}</g>${frame}</svg>`;
   }
   /* ---------- Site content and bilingual copy (EN / AR) ---------- */
-  /* Business contact details: replace these placeholders before launch. */
+  /* Add the real business contact channels here before launch. Blank values
+     keep placeholder contact details and unusable enquiry actions off the page. */
   const CONFIG = {
-    whatsapp: "97400000000",
-    phone: "+974 0000 0000",
-    email: "hello@your-domain.qa",
+    whatsapp: "",
+    phone: "",
+    email: "",
   };
   let L = "en";
   try {
@@ -1030,6 +1031,7 @@
       area: "Area",
       svc: "Service",
       style: "Garden style I liked",
+      plan: "Care plan",
       about: "About the garden",
       nosvc: "Not sure yet",
     },
@@ -1040,6 +1042,7 @@
       area: "المنطقة",
       svc: "الخدمة",
       style: "نمط الحديقة الذي أعجبني",
+      plan: "خطة العناية",
       about: "عن الحديقة",
       nosvc: "لم أحدد بعد",
     },
@@ -1053,6 +1056,7 @@
     plant: "date",
     phase: null,
     touched: false,
+    plan: "",
   };
   const monthName = (m, w) => {
     try {
@@ -1344,6 +1348,10 @@
       const s = STYLES.find((x) => x.id === st.style);
       lines.push(`${m.style}: ${T(s.n)}`);
     }
+    if (st.plan) {
+      const plan = PLANS.find((x) => x.t.en === st.plan);
+      if (plan) lines.push(`${m.plan}: ${T(plan.t)}`);
+    }
     const about = $("#fMsg").value.trim();
     if (about) lines.push(`${m.about}: ${about}`);
     return lines.join("\n");
@@ -1383,6 +1391,11 @@
         mb.setAttribute("aria-expanded", "false");
       }),
     );
+
+    $("#plansGrid").addEventListener("click", (e) => {
+      const link = e.target.closest("[data-plan]");
+      if (link) st.plan = link.dataset.plan;
+    });
 
     $("#styList").addEventListener("click", (e) => {
       const b = e.target.closest(".sty");
@@ -1484,8 +1497,15 @@
       err.textContent = "";
       const msg = buildMsg();
       $("#sentTxt").textContent = msg;
-      $("#waLink").href =
-        "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(msg);
+      const waLink = $("#waLink");
+      const whatsapp = CONFIG.whatsapp.replace(/\D/g, "");
+      if (whatsapp.length >= 6) {
+        waLink.href =
+          "https://wa.me/" + whatsapp + "?text=" + encodeURIComponent(msg);
+        waLink.hidden = false;
+      } else {
+        waLink.hidden = true;
+      }
       form.hidden = true;
       sent.hidden = false;
       sent.scrollIntoView({ block: "nearest", behavior: "smooth" });
@@ -1507,6 +1527,8 @@
     });
     $("#phoneTxt").textContent = CONFIG.phone;
     $("#mailTxt").textContent = CONFIG.email;
+    $("#phoneInfo").hidden = !CONFIG.phone;
+    $("#emailInfo").hidden = !CONFIG.email;
     $("#heroSceneIn").innerHTML = buildScene(
       "majlis",
       "dusk",
