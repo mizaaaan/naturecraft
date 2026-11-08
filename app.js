@@ -1497,15 +1497,21 @@
       err.textContent = "";
       const msg = buildMsg();
       $("#sentTxt").textContent = msg;
-      const waLink = $("#waLink");
       const whatsapp = CONFIG.whatsapp.replace(/\D/g, "");
-      if (whatsapp.length >= 6) {
-        waLink.href =
-          "https://wa.me/" + whatsapp + "?text=" + encodeURIComponent(msg);
-        waLink.hidden = false;
-      } else {
-        waLink.hidden = true;
-      }
+      const waLink = $("#waLink");
+      waLink.href =
+        "https://wa.me/" +
+        (whatsapp.length >= 6 ? whatsapp : "") +
+        "?text=" +
+        encodeURIComponent(msg);
+      $("#sentHelp").textContent =
+        L === "ar"
+          ? whatsapp.length >= 6
+            ? "سيُفتح واتساب والرسالة موجّهة إلى نيتشر كرافت. راجعها ثم اضغط إرسال."
+            : "سيُفتح واتساب والرسالة جاهزة. اختر جهة اتصال نيتشر كرافت، وراجع الرسالة ثم اضغط إرسال."
+          : whatsapp.length >= 6
+            ? "WhatsApp will open with the enquiry addressed to Nature Craft. Review it and tap Send."
+            : "WhatsApp will open with your enquiry ready. Choose the Nature Craft recipient, review the message, then tap Send.";
       form.hidden = true;
       sent.hidden = false;
       sent.scrollIntoView({ block: "nearest", behavior: "smooth" });

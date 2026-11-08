@@ -32,7 +32,7 @@ The site header and footer sit outside `<main>` and have their own labels.
 - **English and Arabic wording:** edit the `en` and `ar` values in the data groups near the top of `app.js`.
 - **Garden selector photos and alt text:** edit `SCENE_MEDIA` in `app.js`; keep the photo file and its credit in `media/` and `MEDIA-LICENSES.md` in sync.
 - **Plants and care information:** edit `PLANTS` in `app.js`.
-- **Business phone, email, and WhatsApp:** set the real values in `CONFIG` in `app.js` before launch. Contact rows stay hidden while blank, and the WhatsApp action stays hidden until a number is configured. Use the international country code without `+` or spaces for WhatsApp (for example, `974...`).
+- **Business phone, email, and WhatsApp:** set the real values in `CONFIG` in `app.js` before launch. Contact rows stay hidden while blank. The WhatsApp button opens the configured business chat when a number is set; otherwise it opens WhatsApp's recipient picker with the enquiry text ready. Use the international country code without `+` or spaces for WhatsApp (for example, `974...`).
 - **Care-plan enquiries:** each plan card carries its selected plan into the contact message automatically.
 - **Colors and fonts:** edit the custom properties at the top of `styles.css`.
 - **Layout and appearance:** use the named component groups in `styles.css` (navigation, hero, garden designer, plants, process, calendar, plans, contact, footer).
